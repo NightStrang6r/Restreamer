@@ -1,0 +1,16 @@
+{
+  "name": "Restreamer",
+  "version": "1.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "colors": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

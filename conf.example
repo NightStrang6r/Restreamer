@@ -1,0 +1,47 @@
+worker_processes  2;
+
+events {
+    worker_connections  8192;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        off;
+
+    server_names_hash_bucket_size 128;
+
+    client_body_timeout   10;
+    client_header_timeout 10;
+    keepalive_timeout     30;
+    send_timeout          10;
+    keepalive_requests    10;
+
+    server {
+        listen       ${webport};
+        server_name  localhost;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+}
+
+rtmp {
+    server {
+        listen ${port};
+        chunk_size 4096;
+        application live {
+            live on;
+            record off;
+            ${push}
+        }
+    }
+}
