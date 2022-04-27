@@ -3,3 +3,4 @@ build
 config.json
 access.log
 error.log
+nginx.pid

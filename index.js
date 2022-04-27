@@ -63,7 +63,9 @@ async function startServer() {
             return;
         }
 
-        console.log(`Server started on rtmp://${ip} (port: ${conf.port})`.brightGreen);
+        console.log(`Server started on "${ip}/live" (port: ${conf.port}). Stream key: "any"`.brightGreen);
+        console.log(`Set these settings in the OBS or another streaming program.`.brightCyan);
+        console.log(`You can also check if the server is running by following this link: http://${ip}:${conf.webport}.\n`.brightCyan);
 
         console.log(`Restreaming to:`);
         for(let i = 0; i < conf.streams.length; i++) {
